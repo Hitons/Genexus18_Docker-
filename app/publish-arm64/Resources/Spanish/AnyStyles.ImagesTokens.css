@@ -1,0 +1,26 @@
+@layer AnyStylesImagesTokens {
+:root
+{
+	--GX-Image_selectRow : url(../selectRow.png);
+	--GX-Image_Boton_Salir : url(../Boton_Salir.png);
+	--GX-Image_Boton_puntogris : url(../Boton_puntogris.png);
+	--GX-Image_Boton_Puntoamarillo : url(../Boton_Puntoamarillo.png);
+	--GX-Image_PageFirst : url(PageFirst.gif);
+	--GX-Image_PageLast : url(PageLast.gif);
+	--GX-Image_PageNext : url(PageNext.gif);
+	--GX-Image_PagePrevious : url(PagePrevious.gif);
+	--GX-Image_Boton_check : url(../Boton_check.png);
+	--GX-Image_Boton_uncheck : url(../Boton_uncheck.png);
+}
+
+.GX_Image_selectRow_Class{content: var(--GX-Image_selectRow);}
+.GX_Image_Boton_Salir_Class{content: var(--GX-Image_Boton_Salir);}
+.GX_Image_Boton_puntogris_Class{content: var(--GX-Image_Boton_puntogris);}
+.GX_Image_Boton_Puntoamarillo_Class{content: var(--GX-Image_Boton_Puntoamarillo);}
+.GX_Image_PageFirst_Class{content: var(--GX-Image_PageFirst);}
+.GX_Image_PageLast_Class{content: var(--GX-Image_PageLast);}
+.GX_Image_PageNext_Class{content: var(--GX-Image_PageNext);}
+.GX_Image_PagePrevious_Class{content: var(--GX-Image_PagePrevious);}
+.GX_Image_Boton_check_Class{content: var(--GX-Image_Boton_check);}
+.GX_Image_Boton_uncheck_Class{content: var(--GX-Image_Boton_uncheck);}
+}
