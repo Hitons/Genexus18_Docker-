@@ -26,6 +26,13 @@ services:
       ASPNETCORE_URLS: http://+:80
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: "false"
       RUN_REORG: "true"
+      appSettings__Connection-Default-DBMS: sqlserver
+      appSettings__Connection-Default-Datasource: sqlserver
+      appSettings__Connection-Default-Port: "1433"
+      appSettings__Connection-Default-DB: GeneXusDB
+      appSettings__Connection-Default-User: sa
+      appSettings__Connection-Default-Password: GeneXus2024!
+      appSettings__Connection-Default-Opts: ;Integrated Security=no;Encrypt=False;TrustServerCertificate=True;
       ConnectionStrings__Default: >
         Server=sqlserver,1433;
         Database=GeneXusDB;
@@ -36,6 +43,7 @@ services:
       - "8081:80"
     volumes:
       - ./app/publish-amd64:/app
+      - gxapp-amd64-dpkeys:/root/.aspnet/DataProtection-Keys
     networks:
       - genexus-network
     restart: unless-stopped
@@ -53,6 +61,13 @@ services:
       ASPNETCORE_URLS: http://+:80
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: "false"
       RUN_REORG: "false"
+      appSettings__Connection-Default-DBMS: sqlserver
+      appSettings__Connection-Default-Datasource: sqlserver
+      appSettings__Connection-Default-Port: "1433"
+      appSettings__Connection-Default-DB: GeneXusDB
+      appSettings__Connection-Default-User: sa
+      appSettings__Connection-Default-Password: GeneXus2024!
+      appSettings__Connection-Default-Opts: ;Integrated Security=no;Encrypt=False;TrustServerCertificate=True;
       ConnectionStrings__Default: >
         Server=sqlserver,1433;
         Database=GeneXusDB;
@@ -63,6 +78,7 @@ services:
       - "8082:80"
     volumes:
       - ./app/publish-arm64:/app
+      - gxapp-arm64-dpkeys:/root/.aspnet/DataProtection-Keys
     networks:
       - genexus-network
     restart: unless-stopped
@@ -82,4 +98,8 @@ networks:
 
 volumes:
   sqlserver-data:
+    driver: local
+  gxapp-amd64-dpkeys:
+    driver: local
+  gxapp-arm64-dpkeys:
     driver: local

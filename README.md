@@ -52,3 +52,14 @@ docker compose logs -f gxapp_amd64
 - **Firmware**: Parpadeo de LED (PA5) cada 500ms
 - **Compilación**: `arm-none-eabi-gcc` (multi-stage Docker)
 
+## Solución de errores comunes
+
+- Si aparece `Cannot connect to SQL Server Browser`, verifica que el servicio apunte a `sqlserver:1433` y reinicia con:
+
+```bash
+docker compose down
+docker compose up -d --build
+```
+
+- Si aparece `Error unprotecting the session cookie`, borra cookies del navegador para `localhost:8081`/`localhost:8082` y vuelve a cargar.
+
