@@ -25,6 +25,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:80
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: "false"
+      RUN_REORG: "true"
       ConnectionStrings__Default: >
         Server=sqlserver,1433;
         Database=GeneXusDB;
@@ -39,8 +40,8 @@ services:
       - genexus-network
     restart: unless-stopped
 
-  gxapp_arm64:
-    container_name: gx-webapp-arm64
+  microcontrolador_arm64:
+    container_name: gx-microcontrolador-arm64
     platform: linux/arm64
     build:
       context: ./app
@@ -51,6 +52,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:80
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: "false"
+      RUN_REORG: "false"
       ConnectionStrings__Default: >
         Server=sqlserver,1433;
         Database=GeneXusDB;
@@ -63,6 +65,15 @@ services:
       - ./app/publish-arm64:/app
     networks:
       - genexus-network
+    restart: unless-stopped
+
+  mcu_cortexm3:
+    container_name: gx-mcu-cortexm3
+    build:
+      context: ./mcu
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
     restart: unless-stopped
 
 networks:
