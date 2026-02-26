@@ -24,6 +24,15 @@ docker compose logs -f mcu_cortexm3
 docker compose logs -f gxapp_amd64
 ```
 
+## Acceso web
+
+- App AMD64:
+	- `http://localhost:8081/wwtra_ciudad`
+	- `http://localhost:8081/Wep_login.aspx`
+- App ARM64:
+	- `http://localhost:8082/wwtra_ciudad`
+	- `http://localhost:8082/Wep_login.aspx`
+
 ## Estructura
 
 ```
